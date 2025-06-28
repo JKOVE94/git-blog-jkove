@@ -22,4 +22,10 @@ export default defineConfig({
 	site: "https://jkove.vercel.app",
 	base: "/git-blog-jkove",
 	output: "static",
+	build: {
+		inlineStylesheets: "auto"
+	},
+	experimental: {
+		clientPrerender: true
+	}
 });
