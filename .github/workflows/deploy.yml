@@ -22,7 +22,6 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-          path: ./git-blog-jkove
           node-version: 20
           package-manager: pnpm
 
