@@ -23,11 +23,11 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
-import mdx from '@astrojs/mdx';
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://jkove94.github.io/git-blog-jkove",
+	site: "https://jkove.vercel.app",
 	base: "/git-blog-jkove",
 	trailingSlash: "always",
 	output: "static",
@@ -154,6 +154,10 @@ export default defineConfig({
 				},
 			],
 		],
+		shikiConfig: {
+			theme: "github-dark",
+			wrap: true,
+		}
 	},
 	vite: {
 		build: {
@@ -168,7 +172,11 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
+				output: {
+					inlineDynamicImports: true
+				}
 			},
+			inlineScripts: true
 		},
 	},
 });
