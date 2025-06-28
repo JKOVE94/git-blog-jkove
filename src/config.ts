@@ -8,16 +8,16 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "jkove's Blog",
-	subtitle: "개발 일지",
+	title: "JKOVE",
+	subtitle: "Developer, AI Developer, Traveler, Video Editor, Music Editor",
 	lang: "ko",
 	themeColor: {
 		hue: 250,
 		fixed: false,
 	},
 	banner: {
-		enable: false,
-		src: "assets/images/demo-banner.png",
+		enable: true,
+		src: "assets/images/DSC02695.jpg",
 		position: "center",
 		credit: {
 			enable: false,
@@ -39,21 +39,36 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "GitHub",
-			url: "https://github.com/jkove",
+			url: "https://github.com/JKOVE94",
 			external: true,
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png",
-	name: "jkove",
-	bio: "개발자의 기술 블로그",
+	avatar: "assets/images/JKOVE-logo.png",
+	name: "JKOVE",
+	bio: "Developer, AI Developer, Traveler, Video Editor, Music Editor",
 	links: [
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/jkove",
+			url: "https://github.com/JKOVE94",
+		},
+		{
+			name: "Threads",
+			icon: "fa6-brands:threads",
+			url: "https://www.threads.net/@jkove1994",
+		},
+		{
+			name: "LinkedIn",
+			icon: "fa6-brands:linkedin",
+			url: "https://www.linkedin.com/in/daehyeon-kim-997006314/",
+		},
+		{
+			name: "Email",
+			icon: "fa6-solid:envelope",
+			url: "mailto:jkove1994@gmail.com",
 		},
 	],
 };

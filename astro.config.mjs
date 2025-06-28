@@ -26,7 +26,7 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://jkove.github.io",
+	site: "https://jkove94.github.io",
 	base: "/git-blog-jkove",
 	trailingSlash: "always",
 	integrations: [
