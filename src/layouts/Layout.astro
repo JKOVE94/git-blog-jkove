@@ -19,6 +19,7 @@ import { defaultFavicons } from "../constants/icon";
 import type { Favicon } from "../types/config";
 import { pathsEqual, url } from "../utils/url-utils";
 import "katex/dist/katex.css";
+import { getTranslation } from "@/i18n/translation";
 
 interface Props {
 	title?: string;
@@ -29,6 +30,27 @@ interface Props {
 }
 
 let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
+
+// Get browser language and map it to supported languages
+const browserLang = Astro.request.headers.get("accept-language")?.split(",")[0]?.toLowerCase() || "en";
+const supportedLangs = {
+	ko: ["ko", "ko-kr"],
+	en: ["en", "en-us", "en-gb"],
+	ja: ["ja", "ja-jp"],
+	"zh-cn": ["zh-cn", "zh-hans"],
+	"zh-tw": ["zh-tw", "zh-hant"],
+	es: ["es", "es-es"],
+	th: ["th", "th-th"]
+};
+
+// Find matching language
+let detectedLang = "en"; // default to English
+for (const [key, values] of Object.entries(supportedLangs)) {
+	if (values.some(v => browserLang.startsWith(v))) {
+		detectedLang = key;
+		break;
+	}
+}
 
 // apply a class to the body element to decide the height of the banner, only used for initial page load
 // Swup can update the body for each page visit, but it's after the page transition, causing a delay for banner height change
@@ -57,9 +79,9 @@ if (title) {
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
 
-// const siteLang = siteConfig.lang.replace('_', '-')
+// Use detected language if no specific language is set
 if (!lang) {
-	lang = `${siteConfig.lang}`;
+	lang = detectedLang;
 }
 const siteLang = lang.replace("_", "-");
 

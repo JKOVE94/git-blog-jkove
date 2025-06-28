@@ -8,6 +8,12 @@ module.exports = {
       fontFamily: {
         sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: 'var(--primary)',
+        'primary-hover': 'var(--primary-hover)',
+        'codeblock-bg': 'var(--codeblock-bg)',
+        'codeblock-topbar-bg': 'var(--codeblock-topbar-bg)',
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

@@ -1,8 +1,9 @@
 ---
 title: "JKOVE 블로그를 시작하며"
-published: "2024-03-20"
+published: 2024-03-20
 description: "개발자로서의 여정과 다양한 경험을 공유하는 블로그를 시작합니다"
 tags: ["blog", "first-post", "introduction"]
+category: daily
 ---
 
 # JKOVE 블로그를 시작하며

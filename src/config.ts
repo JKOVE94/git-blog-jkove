@@ -7,12 +7,34 @@ import type {
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
+// 브라우저 언어를 감지하여 지원되는 언어로 매핑
+function detectLanguage(): string {
+	const browserLang = navigator.language?.toLowerCase() || 'en';
+	const supportedLangs = {
+		ko: ['ko', 'ko-kr'],
+		en: ['en', 'en-us', 'en-gb', 'en-au'],
+		ja: ['ja', 'ja-jp'],
+		'zh-cn': ['zh-cn', 'zh-hans'],
+		'zh-tw': ['zh-tw', 'zh-hant'],
+		es: ['es', 'es-es'],
+		th: ['th', 'th-th']
+	};
+
+	for (const [key, values] of Object.entries(supportedLangs)) {
+		if (values.some(v => browserLang.startsWith(v))) {
+			return key;
+		}
+	}
+
+	return 'en';
+}
+
 export const siteConfig: SiteConfig = {
 	title: "JKOVE",
-	subtitle: "Developer, AI Developer, Traveler, Video Editor, Music Editor",
-	lang: "ko",
+	subtitle: "",
+	lang: detectLanguage(),
 	themeColor: {
-		hue: 250,
+		hue: 125,
 		fixed: false,
 	},
 	banner: {
