@@ -32,7 +32,9 @@ interface Props {
 let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
 
 // Get browser language and map it to supported languages
-const browserLang = Astro.request.headers.get("accept-language")?.split(",")[0]?.toLowerCase() || "en";
+const browserLang =
+	Astro.request.headers.get("accept-language")?.split(",")[0]?.toLowerCase() ||
+	"en";
 const supportedLangs = {
 	ko: ["ko", "ko-kr"],
 	en: ["en", "en-us", "en-gb"],
@@ -40,13 +42,13 @@ const supportedLangs = {
 	"zh-cn": ["zh-cn", "zh-hans"],
 	"zh-tw": ["zh-tw", "zh-hant"],
 	es: ["es", "es-es"],
-	th: ["th", "th-th"]
+	th: ["th", "th-th"],
 };
 
 // Find matching language
 let detectedLang = "en"; // default to English
 for (const [key, values] of Object.entries(supportedLangs)) {
-	if (values.some(v => browserLang.startsWith(v))) {
+	if (values.some((v) => browserLang.startsWith(v))) {
 		detectedLang = key;
 		break;
 	}
