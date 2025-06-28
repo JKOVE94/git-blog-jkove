@@ -9,7 +9,12 @@ import { LinkPreset } from "./types/config";
 
 // 브라우저 언어를 감지하여 지원되는 언어로 매핑
 function detectLanguage(): string {
-	const browserLang = navigator.language?.toLowerCase() || "en";
+	// 서버 사이드에서는 기본값 반환
+	if (typeof window === 'undefined') {
+		return 'ko';
+	}
+
+	const browserLang = window.navigator?.language?.toLowerCase() || "ko";
 	const supportedLangs = {
 		ko: ["ko", "ko-kr"],
 		en: ["en", "en-us", "en-gb", "en-au"],
@@ -26,7 +31,7 @@ function detectLanguage(): string {
 		}
 	}
 
-	return "en";
+	return "ko";
 }
 
 export const siteConfig: SiteConfig = {
