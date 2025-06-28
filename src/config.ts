@@ -36,7 +36,7 @@ function detectLanguage(): string {
 
 export const siteConfig: SiteConfig = {
 	title: "JKOVE",
-	subtitle: "",
+	subtitle: "DEV, AI, TRAVEL, VIDEO, MUSIC",
 	lang: detectLanguage(),
 	themeColor: {
 		hue: 125,
